@@ -1,24 +1,18 @@
 const at = require("./africastalking");
 
-const newAt = at.SMS
+const sms = at.SMS;
 
-const sendSms = async (req, res) => {
-
-  const { to, message } = req.body;
-
+const sendSms = async (to, message) => {
   try {
-    const response = await newAt.send({
+    const response = await sms.send({
       to,
       message,
-      from: 'Jukwaa TechHub' 
+      from: 'Jukwaa TechHub'
     });
-
-    console.log('SMS sent:', response);
-    res.status(200).json({ success: true, data: response });
+    console.log('✅ SMS sent:', response);
   } catch (error) {
-    console.error('Failed to send SMS:', error);
-    res.status(500).json({ success: false, error: error.toString() });
+    console.error('❌ Failed to send SMS:', error);
   }
-}
+};
 
 module.exports = sendSms;
