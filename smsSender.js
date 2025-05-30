@@ -7,7 +7,7 @@ const sendSms = async (to, message) => {
     const response = await sms.send({
       to,
       message,
-      from: 'Jukwaa TechHub'
+      from: 'AgriSmart'
     });
     console.log('✅ SMS sent:', response);
   } catch (error) {
